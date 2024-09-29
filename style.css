@@ -1,0 +1,23 @@
+/* עיצוב הודעות הבוט */
+.assistant-message {
+    text-align: right;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    max-width: 80%;
+    float: right;
+    clear: both;
+}
+
+/* עיצוב הודעות המשתמש */
+.user-message {
+    text-align: left;
+    background-color: #d0f0c0;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    max-width: 80%;
+    float: left;
+    clear: both;
+}

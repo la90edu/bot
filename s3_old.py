@@ -1,5 +1,6 @@
 import streamlit as st
 from questions import questions  # ייבוא השאלות מקובץ חיצוני
+import time
 
 # הוספת סגנון CSS ליישור הטקסט מימין לשמאל עבור הבוט ולשמאל עבור המשתמש
 def add_css():
@@ -35,6 +36,8 @@ def add_css():
 
 # פונקציה להצגת שאלה סגורה עם אפשרויות
 def show_closed_question(question, options, feedbacks):
+    time.sleep(0.5)  # הוספת השהיה של 0.9 שניות
+
     # הצגת השאלה הסגורה מהבוט
     with st.chat_message("assistant"):
         st.markdown(question)
@@ -55,6 +58,8 @@ def show_closed_question(question, options, feedbacks):
 # פונקציה להצגת שאלה פתוחה
 def show_open_question(question, feedback):
     # הצגת השאלה הפתוחה מהבוט
+    time.sleep(0.5)  # הוספת השהיה של 0.9 שניות
+
     with st.chat_message("assistant"):
         st.markdown(question)
 
@@ -129,10 +134,12 @@ def main():
         else:
             st.session_state.finished = True
             summary_message = """
+            <div style="text-align: right;">
             שמחתי לשוחח איתכם ולשמוע על רמת המוטיבציה שלכם להשתלב בתחום טכנולוגי בעתיד. 
             אני ממליץ לכם בחום לדבר על הנושא עם מורה, הורה או איש צוות בבית הספר שיוכל לספר לכם עוד על התחום.
+            </div>
             """
-            st.markdown(summary_message)
+            st.markdown(summary_message, unsafe_allow_html=True)
             st.session_state.messages.append({"role": "assistant", "content": summary_message})
             display_input_box(disabled=False)  # השארת תיבת ה-input פעילה גם בסוף
 
